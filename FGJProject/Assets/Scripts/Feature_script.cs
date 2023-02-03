@@ -14,7 +14,7 @@ public class Feature_script : MonoBehaviour {
 
     public GameObject TestInstantiate;
 
-    Mesh HairStyle; 
+    public Mesh HairStyle; 
 
     Color_enum HairColor; 
 
@@ -24,6 +24,12 @@ public class Feature_script : MonoBehaviour {
     void Start() {
         GameObject thing = Instantiate(TestInstantiate,gameObject.transform.position,Quaternion.identity);
         thing.transform.parent=gameObject.transform;
+        //vaihda thingin mesh johonkin meshiin mikä sille annetaan
+        thing.GetComponent<MeshFilter>().mesh=HairStyle;
+        //localscale pitää olla sama kuin pelaajha meshillä
+        thing.transform.localScale=new Vector3(50,50,50);
+        //x pitää olla -90 
+        thing.transform.Rotate(-90,0,0);
 
         
     }
