@@ -12,6 +12,8 @@ public class Feature_script : MonoBehaviour {
     //incase we need this 
     bool IsMale;
 
+    public GameObject TestInstantiate;
+
     Mesh HairStyle; 
 
     Color_enum HairColor; 
@@ -20,6 +22,9 @@ public class Feature_script : MonoBehaviour {
 
 
     void Start() {
+        GameObject thing = Instantiate(TestInstantiate,gameObject.transform.position,Quaternion.identity);
+        thing.transform.parent=gameObject.transform;
+
         
     }
 
