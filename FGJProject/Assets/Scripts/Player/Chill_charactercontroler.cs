@@ -44,7 +44,7 @@ public class Chill_charactercontroler : MonoBehaviour
         float hrot=Input.GetAxis("Mouse X");
         float vrot=Input.GetAxis("Mouse Y");
         transform.Rotate(0,hrot*sens,0);
-        cam.transform.Rotate(vrot*sens,0,0);
+        cam.transform.Rotate(-vrot*sens,0,0);
     }
 
  
