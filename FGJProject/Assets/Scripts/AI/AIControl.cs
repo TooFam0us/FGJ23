@@ -46,9 +46,6 @@ public class AIControl : MonoBehaviour {
     {
         if (countdown > 0) { 
         countdown--;
-        if (countdown % 50 == 0) {
-                Points();
-        }
         if (countdown == 0)
             {
                 MoveToNext();
@@ -59,7 +56,7 @@ public class AIControl : MonoBehaviour {
     void MoveTo (Vector3 targetLocation)
     {
         //this.GetComponentInChildren<Animator>().enabled = true;
-        anim.speed = 1f;
+        //anim.speed = 1f;
         this.GetComponent<NavMeshAgent>().SetDestination(targetLocation);
         this.transform.forward = targetLocation;
 
@@ -69,7 +66,7 @@ public class AIControl : MonoBehaviour {
     {
         pathIndex++;
         found = false;
-        if (targets.Length > pathIndex) { 
+        if (targets.Length > pathIndex) {
         MoveTo(targets[pathIndex].transform.position);
         TarWaypoint = (Wapoint)targets[pathIndex].GetComponent(typeof(Wapoint));
         TarObject = (InteractableObject)TarWaypoint.GetTarget().GetComponent(typeof(InteractableObject));
@@ -85,7 +82,7 @@ public class AIControl : MonoBehaviour {
 
     void ArrivedAtLocation()
     {
-        anim.speed = 0f;
+        //anim.speed = 0f;
         //anim.Play("mixamo_com", 0, 16/31);
         countdown = waitTimes[pathIndex] * 50 + 10;
     }
@@ -101,20 +98,6 @@ public class AIControl : MonoBehaviour {
         {
             return null;
         }
-    }
-
-    void Points()
-    {
-        if (TarObject.GetState())
-        {
-            score.AddScore(TarWaypoint.GetPointsToGive());
-        }
-        /* //Pisteiden menetys poistettu liaallisen vaikeuden takia
-        else
-        {
-            score.LoseScore(TarWaypoint.GetPointsToGive()/2);
-        }
-        */
     }
 
     bool TargetState()
