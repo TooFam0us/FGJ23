@@ -12,7 +12,7 @@ public class Feature_script : MonoBehaviour {
     //incase we need this 
     bool IsMale;
 
-    public GameObject TestInstantiate;
+    public GameObject PlaceholderHairGo;
 
     public Mesh HairStyle; 
 
@@ -64,7 +64,7 @@ public class Feature_script : MonoBehaviour {
         if(HairStyle!=null){
             if (HairObject==null){
                 //spawn it set it as a child
-                HairObject= Instantiate(TestInstantiate,gameObject.transform.position,Quaternion.identity);
+                HairObject= Instantiate(PlaceholderHairGo,gameObject.transform.position,Quaternion.identity);
                 HairObject.transform.parent=gameObject.transform;
 
                 //vaihda thingin mesh johonkin meshiin mikä sille annetaan

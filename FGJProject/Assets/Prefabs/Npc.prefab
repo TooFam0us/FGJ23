@@ -103,7 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsParent: 0
-  TestInstantiate: {fileID: 5213641681214349355}
+  PlaceholderHairGo: {fileID: 3049450838477225136, guid: 1711c14da6e1c7b4da038d265d2efcbf,
+    type: 3}
   HairStyle: {fileID: 0}
 --- !u!1001 &1583175121024302517
 PrefabInstance:
