@@ -68,7 +68,6 @@ MonoBehaviour:
   pathIndex: -1
   waitTimes: 0500000002000000
   score: {fileID: 0}
-  anim: {fileID: 4941017013421277220}
 --- !u!195 &3452593111904054271
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -188,12 +187,6 @@ PrefabInstance:
 --- !u!4 &1329168953894689374 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 64deb1f06c519b94fb051e2e870e5dbf,
-    type: 3}
-  m_PrefabInstance: {fileID: 1583175121024302517}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &4941017013421277220 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 64deb1f06c519b94fb051e2e870e5dbf,
     type: 3}
   m_PrefabInstance: {fileID: 1583175121024302517}
   m_PrefabAsset: {fileID: 0}
