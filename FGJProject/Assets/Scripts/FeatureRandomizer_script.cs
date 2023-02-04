@@ -179,6 +179,9 @@ public class FeatureRandomizer_script : MonoBehaviour
             bool[] inheritables={randomBool(),randomBool(),randomBool()};//true means it goes to the father
             //in this order - hair color, skin color, eye color
 
+            //hyvin likaista ja itseään toistavaa
+
+            //checks if father has the same feature as the player
             if (inheritables[0]){
                 FathersHair=PlayersHair;
                 DadRandomIndexes[0] =playerRandomIndexes[0] ;

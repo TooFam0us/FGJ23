@@ -14,6 +14,7 @@ public class Timer_script : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
+        SecondsRemaining= GameObject.Find("manager").GetComponent<GameManager_script>().CurrentLevel*120;
         StartCoroutine(Timetick());
     }
 
@@ -27,7 +28,9 @@ public class Timer_script : MonoBehaviour
                 EndGame(); 
             }
 
-            Timer_txt.text=SecondsRemaining.ToString();
+            int minute=SecondsRemaining/60;
+            int second=SecondsRemaining-minute*60;
+            Timer_txt.text=string.Format("{0}:{1:00}",minute,second);
             yield return new WaitForSeconds(1) ;
         }
     }
