@@ -8,18 +8,23 @@ public class FeatureRandomizer_script : MonoBehaviour
 
     List<Mesh> HairStyle_List=new List<Mesh>();
     List<Material> ColorMaterial_List=new List<Material>();
+    List<Material> SkinColors_List=new List<Material>();
 
-    //list of eyecols
-    //list of skincols
-    //list of cols in generall i guess
+    
 
-    //ref to player
-    //set players things on startup mab using the material
+    int[] playerRandomIndexes = new int[3];
+    int[] DadRandomIndexes = new int[3];
+    int[] MomRandomIndexes = new int[3];
 
-    //get random color
-    //get random hair style
-    //get random height
-    //set boundaries for what you cannot have as a hair style or color
+
+    //generate parents features
+    //use the players feature index to generate features for the parents
+    //one of the parents gets some of the features the other gets other features
+    //randomly decide if the mother or father gets the hair
+
+    //go through inherritable traits and roll 50/50
+    // or roll 50/50 for each inheritable trait, 1 means it goes to father 0 to mother
+
 
 
     public GameObject player;
@@ -27,14 +32,32 @@ public class FeatureRandomizer_script : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
 
+        /* Fetch all resources from their appropriate folders*/
         PopulateMaterialColorList();
         PopulateHairMeshList();
-        //gib player hair  color 
-        player.GetComponent<Feature_script>().SetFeatures(GetRandomHair(),GetRandomColor(),null,null,false);
+        PopulateSkinColorList();
+        
+        //set players features and save the indexes
+        GeneratePlayerFeatures();
         
     }
 
 
+    /*this sets the players features and saves the indexes. THIS NEEDS TO BE CALLED BEFORE MAKING PARENTS OR NPC'S*/
+    void GeneratePlayerFeatures(){
+        //set player features. save the index of these features and use them later
+
+        Mesh playerHairmesh = HairStyle_List[Random.Range(0, HairStyle_List.Count)];
+
+        playerRandomIndexes[0] = Random.Range(0,ColorMaterial_List.Count);
+        Material HairColor= ColorMaterial_List[playerRandomIndexes[0]];
+
+        playerRandomIndexes[0] = Random.Range(0,SkinColors_List.Count);
+        Material skincol=SkinColors_List[playerRandomIndexes[1]];
+
+        player.GetComponent<Feature_script>().SetFeatures(playerHairmesh,HairColor,null,skincol,false);
+        player.GetComponent<Feature_script>() .SetClotheCols(GetRandomColor(),GetRandomColor(),GetRandomColor() );
+    }
 
 
     void PopulateHairMeshList(){
@@ -51,9 +74,15 @@ public class FeatureRandomizer_script : MonoBehaviour
     }
 
 
+    //copied get random fns
     Mesh GetRandomHair(){
         int max = HairStyle_List.Count; 
         return HairStyle_List[Random.Range(0,max)] ;
+    }
+
+    Material GetRandomSkinCol(){
+        int max = SkinColors_List.Count; 
+        return SkinColors_List[Random.Range(0,max)] ;
     }
 
     Material GetRandomColor(){
@@ -74,16 +103,46 @@ public class FeatureRandomizer_script : MonoBehaviour
         }
     }
 
+    void PopulateSkinColorList(){
+
+        //hyvin likaista, hyvin epätehokasta
+        string[] guids = AssetDatabase.FindAssets( "t:Material",new string[]{"Assets/Materials/SkinColors"});
+
+        foreach( var guid in guids ) {
+            var path = AssetDatabase.GUIDToAssetPath( guid );
+            Material mat = AssetDatabase.LoadAssetAtPath<Material>( path );
+            SkinColors_List.Add(mat);
+        }
+    }
 
 
-    void RandomizeFeaturesOfGo(GameObject go){
+    //todo. make it avoid players setted features
+    //thhis needs to be implemented in the get random x thing
+    //or in this fn to check if hair is same as hairindex etc some checkoup fn
+
+    //this is a function ment to set npc functions
+    public void RandomizeFeaturesOfGo(GameObject go){
         Feature_script feature=go.GetComponent<Feature_script>();
         if (feature==null){
             Debug.Log("Gameobject given to feature randomizer does not contain the feature_script component");
         }else{
             //randomize the features of go
+            feature.SetFeatures(GetRandomHair(),GetRandomColor(),null,GetRandomSkinCol,false);
+            feature.SetClotheCols(GetRandomColor(),GetRandomColor(),GetRandomColor());
+        }
+    }
 
 
+    public void SetFeaturesOfParents(GameObject parent1, GameObject parent2){
+        // inheritable features features, hair style & color, skin color, eye color, :height:
+        Feature_script father= parent1.GetComponent<Feature_script>();
+        Feature_script mother= parent2.GetComponent<Feature_script>();
+        if (father==null || mother==null){
+            Debug.Log("father or mother does not have the featurescript componentr");
+        }else{
+            //determine wich features go to which parent
+            //4 random bools
+            
         }
     }
 
