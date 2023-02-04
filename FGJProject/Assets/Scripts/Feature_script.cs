@@ -90,7 +90,7 @@ public class Feature_script : MonoBehaviour {
 
     void ChancePlayerskin() {
         changeCharacterMeshMaterial(3,SkinColor);
-        //changeCharacterMeshMaterial(7,EyeColor);
+        changeCharacterMeshMaterial(7,EyeColor);
     }
 
 

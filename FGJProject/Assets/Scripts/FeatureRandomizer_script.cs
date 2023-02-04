@@ -47,10 +47,14 @@ public class FeatureRandomizer_script : MonoBehaviour
         playerRandomIndexes[0] = Random.Range(0,ColorMaterial_List.Count);
         Material HairColor= ColorMaterial_List[playerRandomIndexes[0]];
 
-        playerRandomIndexes[0] = Random.Range(0,SkinColors_List.Count);
+        playerRandomIndexes[1] = Random.Range(0,SkinColors_List.Count);
         Material skincol=SkinColors_List[playerRandomIndexes[1]];
 
-        player.GetComponent<Feature_script>().SetFeatures(playerHairmesh,HairColor,null,skincol,false);
+        playerRandomIndexes[2] = Random.Range(0,ColorMaterial_List.Count);
+        Material eyeColor= ColorMaterial_List[playerRandomIndexes[0]];
+        
+
+        player.GetComponent<Feature_script>().SetFeatures(playerHairmesh,HairColor,eyeColor,skincol,false);
         player.GetComponent<Feature_script>() .SetClotheCols(GetRandomColor(),GetRandomColor(),GetRandomColor() );
     }
 
@@ -122,7 +126,7 @@ public class FeatureRandomizer_script : MonoBehaviour
             Debug.Log("Gameobject given to feature randomizer does not contain the feature_script component");
         }else{
             //randomize the features of go
-            feature.SetFeatures(GetRandomHair(),GetRandomColor(),null,GetRandomSkinCol(),false);
+            feature.SetFeatures(GetRandomHair(),GetRandomColor(),GetRandomColor(),GetRandomSkinCol(),false);
             feature.SetClotheCols(GetRandomColor(),GetRandomColor(),GetRandomColor());
         }
     }
@@ -143,7 +147,7 @@ public class FeatureRandomizer_script : MonoBehaviour
 
         Material PlayersHair= ColorMaterial_List[playerRandomIndexes[0]];
         Material PLayersSkin= ColorMaterial_List[playerRandomIndexes[1]];
-        //Material PlayersEye= ColorMaterial_List[playerRandomIndexes[0]];
+        Material PlayersEye= ColorMaterial_List[playerRandomIndexes[2]];
 
 
         //first make index set it, then get a mat from the index, reset it if parent gets the players hair
@@ -160,6 +164,10 @@ public class FeatureRandomizer_script : MonoBehaviour
 
         Material FathersSkin = SkinColors_List[DadRandomIndexes[1]];
         Material MothersSkin= SkinColors_List[MomRandomIndexes[1]];
+
+
+        Material FatherEye = ColorMaterial_List[DadRandomIndexes[2]];
+        Material MotherEye= ColorMaterial_List[MomRandomIndexes[2]];
 
 
 
@@ -187,10 +195,21 @@ public class FeatureRandomizer_script : MonoBehaviour
                 MomRandomIndexes[1] =playerRandomIndexes[1] ;
             }
 
-            father.SetFeatures(GetRandomHair(),FathersHair,null,FathersSkin,true);
+            if (inheritables[2]){
+                FatherEye=PlayersEye;
+                DadRandomIndexes[2] =playerRandomIndexes[2] ;
+            }else{
+                MotherEye=PlayersEye;
+                MomRandomIndexes[2] =playerRandomIndexes[2] ;
+            }
+
+
+
+
+            father.SetFeatures(GetRandomHair(),FathersHair,FatherEye,FathersSkin,true);
             father.SetClotheCols(GetRandomColor(),GetRandomColor(),GetRandomColor() );
 
-            mother.SetFeatures(GetRandomHair(),MothersHair,null,MothersSkin,true);
+            mother.SetFeatures(GetRandomHair(),MothersHair,MotherEye,MothersSkin,true);
             mother.SetClotheCols(GetRandomColor(),GetRandomColor(),GetRandomColor() );
         }
 
