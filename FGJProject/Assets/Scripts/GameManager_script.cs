@@ -38,8 +38,12 @@ public class GameManager_script : MonoBehaviour
     {
         //spawnais roomeja suhteutettuna level tasoon
         //Instantiate(RoomTypes[0], new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
-        SpawnNpc(GenerateRoom(new Vector3(0, 0, 0)));
-        SpawnNpc(GenerateRoom(new Vector3(50, 0, 0)));
+
+        for (int i = 0; i < CurrentLevel+1; i++)
+        {
+            SpawnNpc(GenerateRoom(new Vector3(-43*i, 0, 0)));
+
+        }
     }
 
     void SpawnNpc(GameObject room)
@@ -76,8 +80,16 @@ public class GameManager_script : MonoBehaviour
         }
         Waypoints = Waypoints2;
         //Debug.Log(Waypoints[Random.Range(0, Waypoints.Length - 1)].transform.position);
-        GameObject NPC =Instantiate(npcPrefab, Waypoints[Random.Range(0, Waypoints.Length - 1)].transform.position, new Quaternion(0, 0, 0, 0));
-        NPC.GetComponent<AIControl>().targets = Waypoints;
+        foreach (GameObject waypoint in Waypoints)
+        {
+            if (Random.value > 0.8f)
+            {
+                GameObject NPC = Instantiate(npcPrefab, waypoint.transform.position, new Quaternion(0, 0, 0, 0));
+                NPC.GetComponent<AIControl>().targets = Waypoints;
+            }
+
+        }
+
 
 
     }
