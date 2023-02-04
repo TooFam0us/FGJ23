@@ -12,11 +12,12 @@ public class GameManager_script : MonoBehaviour
     public GameObject npcPrefab;
     private GameObject[] Rooms;
     string[] RoomTypes;
-
+    private List<GameObject> Npcs;
     // Start is called before the first frame update
     void Start()
     {
         RoomTypes = AssetDatabase.FindAssets("t:prefab", new string[] { "Assets/Prefabs/Rooms" });
+        Npcs = new List<GameObject>();
 
         GenerateLevel();
         //SpawnNpc();
@@ -82,10 +83,13 @@ public class GameManager_script : MonoBehaviour
         //Debug.Log(Waypoints[Random.Range(0, Waypoints.Length - 1)].transform.position);
         foreach (GameObject waypoint in Waypoints)
         {
-            if (Random.value > 0.8f)
+            if (Random.value > 0.5f)
             {
                 GameObject NPC = Instantiate(npcPrefab, waypoint.transform.position, new Quaternion(0, 0, 0, 0));
                 NPC.GetComponent<AIControl>().targets = Waypoints;
+                GetComponent<FeatureRandomizer_script>().RandomizeFeaturesOfGo(NPC);
+                Npcs.Add(NPC);
+                Debug.Log(Npcs.Count);
             }
 
         }
@@ -101,5 +105,10 @@ public class GameManager_script : MonoBehaviour
         GameObject go = AssetDatabase.LoadAssetAtPath<GameObject>(path);
         GameObject CreatedRoom = Instantiate(go, loc, new Quaternion(0, 0, 0, 0));
         return CreatedRoom;
+    }
+
+    void makeParents()
+    {
+        GetComponent<FeatureRandomizer_script>().SetFeaturesOfParents(Npcs[0], Npcs[1]);
     }
 }
