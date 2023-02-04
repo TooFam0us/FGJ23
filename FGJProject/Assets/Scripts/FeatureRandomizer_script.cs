@@ -12,15 +12,9 @@ public class FeatureRandomizer_script : MonoBehaviour
 
     
 
-    //what hair the player has as an index from the hairstyle list
-    int playersHairMeshIndex;
-
-    //what hair color the player has as an index from the colormaterial list
-    int playersHairColorIndex;
-
-    //what skin color the player has as an index from the skincolor list
-    int playersSkinColorIndex;
-
+    int[] playerRandomIndexes = new int[3];
+    int[] DadRandomIndexes = new int[3];
+    int[] MomRandomIndexes = new int[3];
 
 
     //generate parents features
@@ -53,14 +47,13 @@ public class FeatureRandomizer_script : MonoBehaviour
     void GeneratePlayerFeatures(){
         //set player features. save the index of these features and use them later
 
-        playersHairMeshIndex = Random.Range(0,HairStyle_List.Count);
-        Mesh playerHairmesh = HairStyle_List[playersHairMeshIndex];
+        Mesh playerHairmesh = HairStyle_List[Random.Range(0, HairStyle_List.Count)];
 
-        playersHairColorIndex = Random.Range(0,ColorMaterial_List.Count);
-        Material HairColor= ColorMaterial_List[playersHairColorIndex];
+        playerRandomIndexes[0] = Random.Range(0,ColorMaterial_List.Count);
+        Material HairColor= ColorMaterial_List[playerRandomIndexes[0]];
 
-        playersSkinColorIndex = Random.Range(0,SkinColors_List.Count);
-        Material skincol=SkinColors_List[playersSkinColorIndex];
+        playerRandomIndexes[0] = Random.Range(0,SkinColors_List.Count);
+        Material skincol=SkinColors_List[playerRandomIndexes[1]];
 
         player.GetComponent<Feature_script>().SetFeatures(playerHairmesh,HairColor,null,skincol,false);
         player.GetComponent<Feature_script>() .SetClotheCols(GetRandomColor(),GetRandomColor(),GetRandomColor() );
@@ -140,7 +133,7 @@ public class FeatureRandomizer_script : MonoBehaviour
     }
 
 
-    public void SetFeaturesOfParents(GameObject parent1, Gameobject parent2){
+    public void SetFeaturesOfParents(GameObject parent1, GameObject parent2){
         // inheritable features features, hair style & color, skin color, eye color, :height:
         Feature_script father= parent1.GetComponent<Feature_script>();
         Feature_script mother= parent2.GetComponent<Feature_script>();
