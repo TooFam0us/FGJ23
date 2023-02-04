@@ -3,7 +3,32 @@ guid: 8ba4ff2be71872046abd0f0466065797
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Disco
+    second: {fileID: 2100000, guid: 6eb7263392a3f844591b80fb2e94b66b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Disco.001
+    second: {fileID: 2100000, guid: 31b3c145b6896d34b87339a549410e4f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Disco.002
+    second: {fileID: 2100000, guid: 7a998fb87a6e3674aa28028d09c5ceb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Disco.003
+    second: {fileID: 2100000, guid: 74f563f1d4c82db459e8dce4be42f4e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Disco.004
+    second: {fileID: 2100000, guid: 4a4e8b93ed62c8c40a2f0dc63ff60e37, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
