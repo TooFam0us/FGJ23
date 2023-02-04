@@ -81,6 +81,7 @@ public class Chill_charactercontroler : MonoBehaviour
     {
         if (imnear)
         {
+            imnear = false;
             Debug.Log(target.GetComponent<Feature_script>().IsParent);
             GM.ParentFound();
             Destroy(target);

@@ -3,7 +3,17 @@ guid: 0cb90cfabf7a3244696e3073fb96d326
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_SpottLight
+    second: {fileID: 2100000, guid: 9fb9d875505dd6c448037cb5659bc1d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_SpottLight.001
+    second: {fileID: 2100000, guid: 383241ac3aee1b942a5c2ea9745f6577, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
