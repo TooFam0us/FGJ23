@@ -37,6 +37,7 @@ public class Timer_script : MonoBehaviour
 
     public void EndGame(){
         Debug.Log("game has been ended");
+        //GameObject.Find("manager").GetComponent<GameManager_script>().EndGame(false);
     }
 
 
