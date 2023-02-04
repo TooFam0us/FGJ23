@@ -14,6 +14,9 @@ public class GameManager_script : MonoBehaviour
     string[] RoomTypes;
     private List<GameObject> Npcs;
     // Start is called before the first frame update
+    private bool firstParentFound = false;
+
+
     void Start()
     {
         Debug.Log("gamemanager start");
@@ -43,7 +46,7 @@ public class GameManager_script : MonoBehaviour
 
         for (int i = 0; i < CurrentLevel+1; i++)
         {
-            SpawnNpc(GenerateRoom(new Vector3(-43*i, 0, 0)));
+            SpawnNpc(GenerateRoom(new Vector3(-42.34766f * i, 0, 0)));
 
         }
     }
@@ -111,5 +114,27 @@ public class GameManager_script : MonoBehaviour
     void makeParents()
     {
         GetComponent<FeatureRandomizer_script>().SetFeaturesOfParents(Npcs[0], Npcs[1]);
+    }
+    public void ParentFound()
+    {
+        if (firstParentFound)
+        {
+            EndOfLevel(true);
+        }
+        else
+        {
+            firstParentFound = true;
+        }
+    }
+    void EndOfLevel(bool won)
+    {
+        if(won)
+        {
+            //win
+        }
+        else
+        {
+            //lose
+        }
     }
 }

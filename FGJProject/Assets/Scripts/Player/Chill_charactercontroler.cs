@@ -21,6 +21,7 @@ public class Chill_charactercontroler : MonoBehaviour
 
     private GameObject target;
 
+    public GameManager_script GM;
 
     void Start() {
         cc=gameObject.GetComponent<CharacterController>();
@@ -81,6 +82,8 @@ public class Chill_charactercontroler : MonoBehaviour
         if (imnear)
         {
             Debug.Log(target.GetComponent<Feature_script>().IsParent);
+            GM.ParentFound();
+            Destroy(target);
         }
     }
 }
