@@ -115,7 +115,7 @@ public class GameManager_script : MonoBehaviour
             {
                 GameObject NPC = Instantiate(npcPrefab, waypoint.transform.position, new Quaternion(0, 0, 0, 0));
                 NPC.GetComponent<AIControl>().targets = Waypoints;
-                GetComponent<FeatureRandomizer_script>().RandomizeFeaturesOfGo(NPC);
+                GetComponent<FeatureRandomizer_script>().RandomizeFeaturesOfGo(NPC); 
                 Npcs.Add(NPC);
                 Debug.Log(Npcs.Count);
             }
@@ -145,6 +145,7 @@ public class GameManager_script : MonoBehaviour
         if (firstParentFound)
         {
             EndOfLevel(true);
+            firstParentFound = false;
         }
         else
         {
@@ -155,6 +156,7 @@ public class GameManager_script : MonoBehaviour
         GameObject endofgame_screen= Instantiate(endOfGamePrefab,transform.position, Quaternion.identity);
         endofgame_screen.GetComponent<EndGameUiUtils_script>().IsWin=won;
         endofgame_screen.GetComponent<EndGameUiUtils_script>().SetGameStateInfo();
+        GetComponent<FeatureRandomizer_script>().GeneratePlayerFeatures();
 
     }
 

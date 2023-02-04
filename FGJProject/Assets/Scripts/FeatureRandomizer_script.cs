@@ -39,7 +39,7 @@ public class FeatureRandomizer_script : MonoBehaviour
 
 
     /*this sets the players features and saves the indexes. THIS NEEDS TO BE CALLED BEFORE MAKING PARENTS OR NPC'S*/
-    void GeneratePlayerFeatures(){
+    public void GeneratePlayerFeatures(){
         //set player features. save the index of these features and use them later
 
         Mesh playerHairmesh = HairStyle_List[Random.Range(0, HairStyle_List.Count)];

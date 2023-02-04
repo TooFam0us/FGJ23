@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 16155f75cc2fae749add869d4a30d4ef
+guid: 692e7148229dd12489937e6bf397c47a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: peili
-    second: {fileID: 2100000, guid: 680e58d1b4747dc4484aec18bbd0f203, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
