@@ -16,6 +16,9 @@ public class Feature_script : MonoBehaviour {
 
     public Mesh HairStyle; 
 
+    //this is the go that holds the hair mesh
+    GameObject HairObject;
+
     Material HairColor; 
 
     //unimplemented
@@ -55,24 +58,29 @@ public class Feature_script : MonoBehaviour {
 
 
 
-    /* spawn meshes as children */
+    /* spawn meshes as children. changes the mesh if it is allready spawned */
     void SpawnFeatures(){
 
         if(HairStyle!=null){
+            if (HairObject==null){
+                //spawn it set it as a child
+                HairObject= Instantiate(TestInstantiate,gameObject.transform.position,Quaternion.identity);
+                HairObject.transform.parent=gameObject.transform;
 
-        GameObject thing = Instantiate(TestInstantiate,gameObject.transform.position,Quaternion.identity);
-        thing.transform.parent=gameObject.transform;
+                //vaihda thingin mesh johonkin meshiin mikä sille annetaan
+                HairObject.GetComponent<MeshFilter>().mesh=HairStyle;
 
-        //vaihda thingin mesh johonkin meshiin mikä sille annetaan
-        thing.GetComponent<MeshFilter>().mesh=HairStyle;
+                //localscale pitää olla sama kuin pelaajha meshillä
+                HairObject.transform.localScale=new Vector3(50,50,50);
 
-        //localscale pitää olla sama kuin pelaajha meshillä
-        thing.transform.localScale=new Vector3(50,50,50);
+                HairObject.GetComponent<Renderer>().material=HairColor;
 
-        thing.GetComponent<Renderer>().material=HairColor;
+                //x pitää olla -90 
+                HairObject.transform.Rotate(-90,0,0);
+            }else {
+                HairObject.GetComponent<MeshFilter>().mesh=HairStyle;
+            }
 
-        //x pitää olla -90 
-        thing.transform.Rotate(-90,0,0);
         }else{
             Debug.Log("tried to spawn hair. but hairstyle is null");;
         }
@@ -82,18 +90,18 @@ public class Feature_script : MonoBehaviour {
 
     void ChancePlayerskin() {
         changeCharacterMeshMaterial(3,SkinColor);
+        //changeCharacterMeshMaterial(7,EyeColor);
     }
 
 
     //change material at index for the player mesh
     void changeCharacterMeshMaterial(int index,Material newMat){
-        Renderer[] children;
-        children = GetComponentsInChildren<Renderer>();
+        Renderer rend = transform.GetChild(0).transform.GetChild(1).GetComponent<Renderer>();
 
-        //look at index 1 since index  0 is camera
-        Material[] mats =children[1].materials;
+        Material[] mats =rend.materials;
         mats[index]=newMat;
-        children[1].materials=mats;
+        rend.materials=mats;
+
 
     }
 

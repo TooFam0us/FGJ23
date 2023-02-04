@@ -25,6 +25,7 @@ public class FeatureRandomizer_script : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
+        Debug.Log("feature start");
 
         /* Fetch all resources from their appropriate folders*/
         PopulateMaterialColorList();
