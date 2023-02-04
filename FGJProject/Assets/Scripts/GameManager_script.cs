@@ -115,7 +115,7 @@ public class GameManager_script : MonoBehaviour
             {
                 GameObject NPC = Instantiate(npcPrefab, waypoint.transform.position, new Quaternion(0, 0, 0, 0));
                 NPC.GetComponent<AIControl>().targets = Waypoints;
-                GetComponent<FeatureRandomizer_script>().RandomizeFeaturesOfGo(NPC);
+                GetComponent<FeatureRandomizer_script>().RandomizeFeaturesOfGo(NPC); //i win xd
                 Npcs.Add(NPC);
                 Debug.Log(Npcs.Count);
             }
