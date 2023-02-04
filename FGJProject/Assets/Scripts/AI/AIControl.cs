@@ -18,22 +18,22 @@ public class AIControl : MonoBehaviour {
 
     private InteractableObject TarObject;
     private Wapoint TarWaypoint;
-
+    int i = 0;
 
     public Score score;
 
     private Animator anim;
     void Start() {
-        anim = GetComponentInChildren<Animator>();
+        //anim = GetComponentInChildren<Animator>();
         // Grab hold of the agents NavMeshAgent
-        MoveToNext();
+        MoveToRandom();
     }
 
     void Update()
     {
         if (targets.Length > pathIndex) 
         { 
-        if(Vector3.Distance(targets[pathIndex].transform.position, transform.position) < 1 && found==false)
+        if(Vector3.Distance(targets[i].transform.position, transform.position) < 1 && found==false)
             {
                 found = true;
                 ArrivedAtLocation();
@@ -48,7 +48,7 @@ public class AIControl : MonoBehaviour {
         countdown--;
         if (countdown == 0)
             {
-                MoveToNext();
+                MoveToRandom();
             }
         }
     }
@@ -78,13 +78,26 @@ public class AIControl : MonoBehaviour {
             TarWaypoint = null;
         }
     }
+    void MoveToRandom()
+    {
+        found = false;
+        Randomize();
+        MoveTo(targets[i].transform.position);
+        TarWaypoint = (Wapoint)targets[i].GetComponent(typeof(Wapoint));
+        TarObject = (InteractableObject)TarWaypoint.GetTarget().GetComponent(typeof(InteractableObject));
+    }
 
-
+    void Randomize()
+    {
+        i = UnityEngine.Random.Range(0, targets.Length);
+        //Debug.Log(i.ToString());
+    }
     void ArrivedAtLocation()
     {
         //anim.speed = 0f;
         //anim.Play("mixamo_com", 0, 16/31);
-        countdown = waitTimes[pathIndex] * 50 + 10;
+        //countdown = waitTimes[i] * 50 + 10;
+        countdown = UnityEngine.Random.Range(60, 300); ;
     }
 
     public GameObject GetCurrentGO()
