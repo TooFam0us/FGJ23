@@ -37,7 +37,7 @@ public class Chill_charactercontroler : MonoBehaviour
         handle_rotate();
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            //Debug.Log("Mouse0 key was pressed.");
+            Debug.Log("Mouse0 key was pressed.");
             MouseClick();
         }
         /*
@@ -53,8 +53,8 @@ public class Chill_charactercontroler : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out rayhit, interactionDistance))
         {
             imnear = (rayhit.collider.tag == "Clickable");
-            if (imnear) { 
-            target = rayhit.collider.gameObject;
+            if (imnear) {
+                target = rayhit.collider.gameObject;
             }
         }
     }
