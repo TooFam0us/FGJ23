@@ -96,13 +96,12 @@ public class Feature_script : MonoBehaviour {
 
     //change material at index for the player mesh
     void changeCharacterMeshMaterial(int index,Material newMat){
-        Renderer[] children;
-        children = GetComponentsInChildren<Renderer>();
+        Renderer rend = transform.GetChild(0).transform.GetChild(1).GetComponent<Renderer>();
 
-        //look at index 1 since index  0 is camera
-        Material[] mats =children[1].materials;
+        Material[] mats =rend.materials;
         mats[index]=newMat;
-        children[1].materials=mats;
+        rend.materials=mats;
+
 
     }
 

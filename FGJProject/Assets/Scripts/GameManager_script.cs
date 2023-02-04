@@ -16,6 +16,7 @@ public class GameManager_script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("gamemanager start");
         RoomTypes = AssetDatabase.FindAssets("t:prefab", new string[] { "Assets/Prefabs/Rooms" });
         Npcs = new List<GameObject>();
 
