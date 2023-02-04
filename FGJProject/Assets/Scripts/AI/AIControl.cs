@@ -56,7 +56,8 @@ public class AIControl : MonoBehaviour {
     void MoveTo (Vector3 targetLocation)
     {
         this.GetComponentInChildren<Animator>().enabled = true;
-        anim.speed = 1f;
+        anim.SetBool("IsWalking", true);
+        //anim.speed = 1f;
         this.GetComponent<NavMeshAgent>().SetDestination(targetLocation);
         this.transform.forward = targetLocation;
 
@@ -94,8 +95,9 @@ public class AIControl : MonoBehaviour {
     }
     void ArrivedAtLocation()
     {
-        anim.speed = 0f;
-        anim.Play("mixamo_com", 0, 16/31);
+        //anim.speed = 0f;
+        //anim.Play("mixamo_com", 0, 16/31);
+        anim.SetBool("IsWalking", false);
         countdown = waitTimes[i] * 50 + 10;
         countdown = UnityEngine.Random.Range(60, 300); ;
     }
