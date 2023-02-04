@@ -21,6 +21,7 @@ public class GameManager_script : MonoBehaviour
 
     GameObject Timer;
 
+    public bool gameEnded = false;
 
     void Start()
     {
@@ -156,6 +157,7 @@ public class GameManager_script : MonoBehaviour
         }
     }
     public void EndOfLevel(bool won) {
+        gameEnded = true;
         GameObject endofgame_screen= Instantiate(endOfGamePrefab,transform.position, Quaternion.identity);
         endofgame_screen.GetComponent<EndGameUiUtils_script>().IsWin=won;
         endofgame_screen.GetComponent<EndGameUiUtils_script>().SetGameStateInfo();
