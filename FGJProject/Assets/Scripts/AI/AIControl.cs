@@ -70,7 +70,7 @@ public class AIControl : MonoBehaviour {
         if (targets.Length > pathIndex) {
         MoveTo(targets[pathIndex].transform.position);
         TarWaypoint = (Wapoint)targets[pathIndex].GetComponent(typeof(Wapoint));
-        TarObject = (InteractableObject)TarWaypoint.GetTarget().GetComponent(typeof(InteractableObject));
+        //TarObject = (InteractableObject)TarWaypoint.GetTarget().GetComponent(typeof(InteractableObject));
 
 
         }
@@ -85,7 +85,7 @@ public class AIControl : MonoBehaviour {
         Randomize();
         MoveTo(targets[i].transform.position);
         TarWaypoint = (Wapoint)targets[i].GetComponent(typeof(Wapoint));
-        TarObject = (InteractableObject)TarWaypoint.GetTarget().GetComponent(typeof(InteractableObject));
+        //TarObject = (InteractableObject)TarWaypoint.GetTarget().GetComponent(typeof(InteractableObject));
     }
 
     void Randomize()
@@ -98,7 +98,7 @@ public class AIControl : MonoBehaviour {
         //anim.speed = 0f;
         //anim.Play("mixamo_com", 0, 16/31);
         anim.SetBool("IsWalking", false);
-        countdown = waitTimes[i] * 50 + 10;
+        //countdown = waitTimes[i] * 50 + 10;
         countdown = UnityEngine.Random.Range(60, 300); ;
     }
 

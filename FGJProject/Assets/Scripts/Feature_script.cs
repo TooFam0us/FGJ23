@@ -63,25 +63,31 @@ public class Feature_script : MonoBehaviour {
 
         if(HairStyle!=null){
             if (HairObject==null){
+                //Debug.Log(gameObject.transform.GetChild(0).transform.Find("spine.006"));
                 //spawn it set it as a child
-                HairObject= Instantiate(PlaceholderHairGo,gameObject.transform.position,Quaternion.identity);
-                HairObject.transform.parent=gameObject.transform;
+                //Debug.Log(gameObject.transform.Find("Idle/Character/spine/spine.001/spine.002/spine.003/spine.004/spine.005/spine.006").transform);
+                HairObject = Instantiate(PlaceholderHairGo,gameObject.transform.position,Quaternion.identity);
+                HairObject.transform.parent= gameObject.transform.Find("Idle/Character/spine/spine.001/spine.002/spine.003/spine.004/spine.005/spine.006").transform;
 
                 //vaihda thingin mesh johonkin meshiin mikä sille annetaan
                 HairObject.GetComponent<MeshFilter>().mesh=HairStyle;
 
                 //localscale pitää olla sama kuin pelaajha meshillä
-                HairObject.transform.localScale=new Vector3(50,50,50);
+                HairObject.transform.localScale=new Vector3(1,1,1);
 
                 HairObject.GetComponent<Renderer>().material=HairColor;
 
                 //x pitää olla -90 
                 HairObject.transform.Rotate(-90,0,0);
-            }else {
+                HairObject.transform.position += new Vector3(0, -1.25f, 0.0f);
+
+            }
+            else {
                 HairObject.GetComponent<MeshFilter>().mesh=HairStyle;
             }
 
-        }else{
+        }
+        else{
             Debug.Log("tried to spawn hair. but hairstyle is null");;
         }
 

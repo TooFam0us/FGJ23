@@ -25,8 +25,8 @@ public class GameManager_script : MonoBehaviour
     void Start()
     {
         Debug.Log("gamemanager start");
-        RoomTypes = AssetDatabase.FindAssets("t:prefab", new string[] { "Assets/Prefabs/Rooms" });
         Timer=GameObject.Find("TimerUi");
+        RoomTypes = AssetDatabase.FindAssets("t:prefab", new string[] { "Assets/Prefabs/PivotedRooms" });
         Npcs = new List<GameObject>();
 
         GenerateLevel();
