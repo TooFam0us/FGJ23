@@ -30,12 +30,10 @@ public class Feature_script : MonoBehaviour {
     float Height;
 
 
-    
-
 
 
     /*sets characters features and spawns meshes as children*/
-    public void SetFeatures(Mesh hair_mesh, Material hair_color, Material eye_color, Material skin_color, bool is_parent ){
+    public void SetFeatures(Mesh hair_mesh, Material hair_color, Material eye_color, Material skin_color, bool is_parent, bool is_player ){
         HairStyle=hair_mesh;
         HairColor=hair_color;
         EyeColor=eye_color;
@@ -44,7 +42,7 @@ public class Feature_script : MonoBehaviour {
         
         ChancePlayerskin();
 
-        SpawnFeatures();
+        SpawnFeatures(is_player);
     }
 
 
@@ -59,7 +57,8 @@ public class Feature_script : MonoBehaviour {
 
 
     /* spawn meshes as children. changes the mesh if it is allready spawned */
-    void SpawnFeatures(){
+    void SpawnFeatures(bool firstchar)
+    {
 
         if(HairStyle!=null){
             if (HairObject==null){
@@ -77,9 +76,18 @@ public class Feature_script : MonoBehaviour {
 
                 HairObject.GetComponent<Renderer>().material=HairColor;
 
-                //x pitää olla -90 
-                HairObject.transform.Rotate(-90,0,0);
-                HairObject.transform.position += new Vector3(0, -1.25f, 0.0f);
+                if (firstchar == true)
+                {
+                    HairObject.transform.Rotate(-90, 0, -75);
+                    Debug.Log("kulli");
+                    HairObject.transform.position += new Vector3(0, -0.05f, 0.0f);
+
+                }
+                else {
+                    //x pitää olla -90 
+                    HairObject.transform.Rotate(-90, 0, 0);
+                    HairObject.transform.position += new Vector3(0, -1.25f, 0.0f);
+                }
 
             }
             else {
@@ -93,6 +101,9 @@ public class Feature_script : MonoBehaviour {
 
 
     }
+
+
+
 
     void ChancePlayerskin() {
         changeCharacterMeshMaterial(3,SkinColor);
