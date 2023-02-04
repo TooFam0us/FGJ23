@@ -61,8 +61,10 @@ public class Chill_charactercontroler : MonoBehaviour
 
 
     void handle_movement(){
+        if(GM.gameEnded == false) { 
         Vector3 movedir= transform.forward*(forward_movement*(1)) + transform.right*(side_movement*(1)) + transform.up*-1;
         cc.Move(MS*Time.deltaTime*movedir);
+        }
     }
 
     void handle_inputs(){
@@ -71,10 +73,15 @@ public class Chill_charactercontroler : MonoBehaviour
     }
 
     void handle_rotate(){
-        float hrot=Input.GetAxis("Mouse X");
+        if (GM.gameEnded == false)
+        {
+
+            float hrot =Input.GetAxis("Mouse X");
         float vrot=Input.GetAxis("Mouse Y");
         transform.Rotate(0,hrot*sens,0);
         cam.transform.Rotate(-vrot*sens,0,0);
+        }
+
     }
 
     void MouseClick()

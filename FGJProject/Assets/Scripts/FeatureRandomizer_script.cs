@@ -43,16 +43,20 @@ public class FeatureRandomizer_script : MonoBehaviour
 
     public void reset_player_pos(){
         Debug.Log("next lev");
-        Debug.Log(player.transform);
-        Debug.Log(player.transform.position);
         Vector3 startpos=new Vector3(9.7f,-1.7f,-1.0f);
         player.transform.position = startpos;
+        player.transform.rotation = Quaternion.identity;
+        StartCoroutine(ExecuteAfterTime(0.1f));
         //9.7,-1.7,-1
-        Debug.Log(player.transform.position);
-
     }
 
+    IEnumerator ExecuteAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
 
+        // Code to execute after the delay
+        player.GetComponent<Chill_charactercontroler>().GM.gameEnded = false;
+    }
     /*this sets the players features and saves the indexes. THIS NEEDS TO BE CALLED BEFORE MAKING PARENTS OR NPC'S*/
     public void GeneratePlayerFeatures(){
         //set player features. save the index of these features and use them later
