@@ -57,12 +57,15 @@ public class GameManager_script : MonoBehaviour
 
     public void NextLevel()
     {
+        Debug.Log("next lev");
         DestroyAllRooms();
         DestroyAllNpc();
         CurrentLevel++;
         Timer.GetComponent<Timer_script>().setTime();
         GenerateLevel();
+        GetComponent<FeatureRandomizer_script>().reset_player_pos();
     }
+
     void GenerateLevel()
     {
         //spawnais roomeja suhteutettuna level tasoon

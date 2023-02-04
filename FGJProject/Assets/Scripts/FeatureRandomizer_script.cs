@@ -37,6 +37,21 @@ public class FeatureRandomizer_script : MonoBehaviour
         
     }
 
+    void Update() {
+        Debug.Log(player.transform.position);
+    }
+
+    public void reset_player_pos(){
+        Debug.Log("next lev");
+        Debug.Log(player.transform);
+        Debug.Log(player.transform.position);
+        Vector3 startpos=new Vector3(9.7f,-1.7f,-1.0f);
+        player.transform.position = startpos;
+        //9.7,-1.7,-1
+        Debug.Log(player.transform.position);
+
+    }
+
 
     /*this sets the players features and saves the indexes. THIS NEEDS TO BE CALLED BEFORE MAKING PARENTS OR NPC'S*/
     public void GeneratePlayerFeatures(){
