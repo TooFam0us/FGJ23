@@ -19,11 +19,14 @@ public class GameManager_script : MonoBehaviour
     [SerializeField]
     GameObject endOfGamePrefab;
 
+    GameObject Timer;
+
 
     void Start()
     {
         Debug.Log("gamemanager start");
         RoomTypes = AssetDatabase.FindAssets("t:prefab", new string[] { "Assets/Prefabs/Rooms" });
+        Timer=GameObject.Find("TimerUi");
         Npcs = new List<GameObject>();
 
         GenerateLevel();
@@ -55,7 +58,9 @@ public class GameManager_script : MonoBehaviour
     public void NextLevel()
     {
         DestroyAllRooms();
+        DestroyAllNpc();
         CurrentLevel++;
+        Timer.GetComponent<Timer_script>().setTime();
         GenerateLevel();
     }
     void GenerateLevel()
@@ -146,7 +151,7 @@ public class GameManager_script : MonoBehaviour
             firstParentFound = true;
         }
     }
-    void EndOfLevel(bool won) {
+    public void EndOfLevel(bool won) {
         GameObject endofgame_screen= Instantiate(endOfGamePrefab,transform.position, Quaternion.identity);
         endofgame_screen.GetComponent<EndGameUiUtils_script>().IsWin=won;
         endofgame_screen.GetComponent<EndGameUiUtils_script>().SetGameStateInfo();

@@ -48,6 +48,8 @@ MonoBehaviour:
   CurrentLevel: 0
   npcPrefab: {fileID: 5213641681214349355, guid: dc8fc9560b0c00947afed348b566fb42,
     type: 3}
+  endOfGamePrefab: {fileID: 9106847296459771601, guid: c1002851e53c4d14c99e1f7f3b9cda31,
+    type: 3}
 --- !u!114 &6288055239046241458
 MonoBehaviour:
   m_ObjectHideFlags: 0

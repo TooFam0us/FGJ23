@@ -14,8 +14,13 @@ public class Timer_script : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        SecondsRemaining= GameObject.Find("manager").GetComponent<GameManager_script>().CurrentLevel*120;
+        setTime();
         StartCoroutine(Timetick());
+    }
+
+    public void setTime(){
+        SecondsRemaining= GameObject.Find("manager").GetComponent<GameManager_script>().CurrentLevel*10;
+
     }
 
 
@@ -37,7 +42,7 @@ public class Timer_script : MonoBehaviour
 
     public void EndGame(){
         Debug.Log("game has been ended");
-        //GameObject.Find("manager").GetComponent<GameManager_script>().EndGame(false);
+        GameObject.Find("manager").GetComponent<GameManager_script>().EndOfLevel(false);
     }
 
 
