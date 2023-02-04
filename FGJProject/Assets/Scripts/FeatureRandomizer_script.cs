@@ -18,13 +18,6 @@ public class FeatureRandomizer_script : MonoBehaviour
     int[] MomRandomIndexes = new int[3];
 
 
-    //generate parents features
-    //use the players feature index to generate features for the parents
-    //one of the parents gets some of the features the other gets other features
-    //randomly decide if the mother or father gets the hair
-
-    //go through inherritable traits and roll 50/50
-    // or roll 50/50 for each inheritable trait, 1 means it goes to father 0 to mother
 
 
 
