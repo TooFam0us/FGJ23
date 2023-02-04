@@ -10,16 +10,22 @@ public class GameManager_script : MonoBehaviour
     //spawn random npc's
     public int CurrentLevel = 0;
     public GameObject npcPrefab;
-    private GameObject[] Rooms;
+    private List<GameObject> Rooms= new List<GameObject>();
     string[] RoomTypes;
     private List<GameObject> Npcs;
     // Start is called before the first frame update
     private bool firstParentFound = false;
 
+    [SerializeField]
+    GameObject endOfGamePrefab;
+
+    GameObject Timer;
+
 
     void Start()
     {
         Debug.Log("gamemanager start");
+        Timer=GameObject.Find("TimerUi");
         RoomTypes = AssetDatabase.FindAssets("t:prefab", new string[] { "Assets/Prefabs/PivotedRooms" });
         Npcs = new List<GameObject>();
 
@@ -28,15 +34,33 @@ public class GameManager_script : MonoBehaviour
 
     }
 
+
+    void DestroyAllRooms(){
+        for (int i = 0; i < Rooms.Count; i++) {
+            Destroy(Rooms[i]);
+        }
+    }
+
+    void DestroyAllNpc(){
+        for (int i = 0; i < Npcs.Count; i++) {
+            Destroy(Npcs[i]);
+        }
+    }
+
+
+
     // Update is called once per frame
     void Update()
     {
         
     }
 
-    void NextLevel()
+    public void NextLevel()
     {
+        DestroyAllRooms();
+        DestroyAllNpc();
         CurrentLevel++;
+        Timer.GetComponent<Timer_script>().setTime();
         GenerateLevel();
     }
     void GenerateLevel()
@@ -108,6 +132,7 @@ public class GameManager_script : MonoBehaviour
         var path = AssetDatabase.GUIDToAssetPath(RoomTypes[Random.Range(0, RoomTypes.Length)]);
         GameObject go = AssetDatabase.LoadAssetAtPath<GameObject>(path);
         GameObject CreatedRoom = Instantiate(go, loc, new Quaternion(0, 0, 0, 0));
+        Rooms.Add(CreatedRoom);
         return CreatedRoom;
     }
 
@@ -126,15 +151,11 @@ public class GameManager_script : MonoBehaviour
             firstParentFound = true;
         }
     }
-    void EndOfLevel(bool won)
-    {
-        if(won)
-        {
-            //win
-        }
-        else
-        {
-            //lose
-        }
+    public void EndOfLevel(bool won) {
+        GameObject endofgame_screen= Instantiate(endOfGamePrefab,transform.position, Quaternion.identity);
+        endofgame_screen.GetComponent<EndGameUiUtils_script>().IsWin=won;
+        endofgame_screen.GetComponent<EndGameUiUtils_script>().SetGameStateInfo();
+
     }
+
 }

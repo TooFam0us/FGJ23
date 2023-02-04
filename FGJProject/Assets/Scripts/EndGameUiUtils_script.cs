@@ -22,6 +22,10 @@ public class EndGameUiUtils_script : MonoBehaviour
     void Start() {
         manager=GameObject.Find("manager");
         updateScoreTxt();
+
+        
+        Cursor.lockState=CursorLockMode.None;
+        Cursor.visible=true;
         
     }
 
@@ -32,7 +36,7 @@ public class EndGameUiUtils_script : MonoBehaviour
     }
 
     //tells if you lost or won
-    void SetGameStateInfo(){
+    public void SetGameStateInfo(){
         if(IsWin){
             HeroText.text = "Level Passed!";
             buttons_text.text="Next Level!"; 
@@ -61,6 +65,9 @@ public class EndGameUiUtils_script : MonoBehaviour
         //code
         //start from lev0
 
+        manager.GetComponent<GameManager_script>().CurrentLevel=0;
+        manager.GetComponent<GameManager_script>().NextLevel();
+
         closeUi();
     }
 
@@ -68,13 +75,16 @@ public class EndGameUiUtils_script : MonoBehaviour
         //code
         //start from next level
 
+        manager.GetComponent<GameManager_script>().NextLevel();
         closeUi();
     }
 
 
     void closeUi(){
-        //unlock mouse
+        //lock mouse
 
+        Cursor.lockState=CursorLockMode.Locked;
+        Cursor.visible=false;
         Destroy(gameObject);
     }
 
