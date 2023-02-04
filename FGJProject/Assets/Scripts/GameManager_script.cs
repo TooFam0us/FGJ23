@@ -70,8 +70,8 @@ public class GameManager_script : MonoBehaviour
 
         for (int i = 0; i < CurrentLevel+1; i++)
         {
-            SpawnNpc(GenerateRoom(new Vector3(-42.34766f * i, 0, 0)));
-
+            SpawnNpc(GenerateRoom(new Vector3(-42.34766f * i, 0, 0), new Quaternion(0, 0, 0, 0)));
+            SpawnNpc(GenerateRoom(new Vector3(-42.34766f * i, 0, 0), new Quaternion(0, 180, 0, 0)));
         }
     }
 
@@ -125,13 +125,13 @@ public class GameManager_script : MonoBehaviour
 
 
     }
-    GameObject GenerateRoom(Vector3 loc)
+    GameObject GenerateRoom(Vector3 loc, Quaternion rot)
     {
         //spawnais roomeja suhteutettuna level tasoon
         //Instantiate(RoomTypes[0], new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
         var path = AssetDatabase.GUIDToAssetPath(RoomTypes[Random.Range(0, RoomTypes.Length)]);
         GameObject go = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-        GameObject CreatedRoom = Instantiate(go, loc, new Quaternion(0, 0, 0, 0));
+        GameObject CreatedRoom = Instantiate(go, loc, rot);
         Rooms.Add(CreatedRoom);
         return CreatedRoom;
     }
