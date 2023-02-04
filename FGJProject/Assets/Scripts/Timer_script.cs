@@ -19,7 +19,7 @@ public class Timer_script : MonoBehaviour
     }
 
     public void setTime(){
-        SecondsRemaining= GameObject.Find("manager").GetComponent<GameManager_script>().CurrentLevel*10;
+        SecondsRemaining= GameObject.Find("manager").GetComponent<GameManager_script>().CurrentLevel*60;
 
     }
 
