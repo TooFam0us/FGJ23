@@ -21,15 +21,11 @@ public class Feature_script : MonoBehaviour {
     //unimplemented
     Material EyeColor; 
 
-    //unimplemented
     Material SkinColor; 
 
     //unimplemented
     float Height;
 
-
-    //not inherritted stuff 
-    Material Shirt_color;
 
     
 
@@ -48,11 +44,6 @@ public class Feature_script : MonoBehaviour {
         SpawnFeatures();
     }
 
-    //debug function
-    public void setCol(Material hair){
-        HairColor=hair;
-        SpawnFeatures();
-    }
 
     //set uninheritables
     public void SetClotheCols(Material shirt,Material pants, Material shoe){
@@ -66,6 +57,7 @@ public class Feature_script : MonoBehaviour {
 
     /* spawn meshes as children */
     void SpawnFeatures(){
+
         if(HairStyle!=null){
 
         GameObject thing = Instantiate(TestInstantiate,gameObject.transform.position,Quaternion.identity);
@@ -86,13 +78,12 @@ public class Feature_script : MonoBehaviour {
         }
 
 
-
-
     }
 
     void ChancePlayerskin() {
         changeCharacterMeshMaterial(3,SkinColor);
     }
+
 
     //change material at index for the player mesh
     void changeCharacterMeshMaterial(int index,Material newMat){
