@@ -194,7 +194,10 @@ public class FeatureRandomizer_script : MonoBehaviour
             }
 
             father.SetFeatures(GetRandomHair(),FathersHair,null,FathersSkin,true);
+            father.SetClotheCols(GetRandomColor(),GetRandomColor(),GetRandomColor() );
+
             mother.SetFeatures(GetRandomHair(),MothersHair,null,MothersSkin,true);
+            mother.SetClotheCols(GetRandomColor(),GetRandomColor(),GetRandomColor() );
         }
 
     }
