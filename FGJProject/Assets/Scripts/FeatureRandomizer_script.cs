@@ -10,7 +10,8 @@ public class FeatureRandomizer_script : MonoBehaviour
     List<Material> ColorMaterial_List=new List<Material>();
     List<Material> SkinColors_List=new List<Material>();
 
-    
+
+   // hair color, skiun color, eyecolor 
 
     int[] playerRandomIndexes = new int[3];
     int[] DadRandomIndexes = new int[3];
@@ -145,14 +146,57 @@ public class FeatureRandomizer_script : MonoBehaviour
         // inheritable features features, hair color, skin color, eye color, :height:
         Feature_script father= parent1.GetComponent<Feature_script>();
         Feature_script mother= parent2.GetComponent<Feature_script>();
-        if (father==null || mother==null){
+
+        Material PlayersHair= ColorMaterial_List[playerRandomIndexes[0]];
+        Material PLayersSkin= ColorMaterial_List[playerRandomIndexes[1]];
+        //Material PlayersEye= ColorMaterial_List[playerRandomIndexes[0]];
+
+
+        //first make index set it, then get a mat from the index, reset it if parent gets the players hair
+        //parents hair and skin are random at first but then they are set to the players if the parent gets a good roll
+
+        DadRandomIndexes[0] = Random.Range(0,ColorMaterial_List.Count);
+        DadRandomIndexes[1] = Random.Range(0,SkinColors_List.Count);
+
+        MomRandomIndexes[0] = Random.Range(0,ColorMaterial_List.Count);
+        MomRandomIndexes[1] = Random.Range(0,SkinColors_List.Count);
+
+        Material FathersHair = ColorMaterial_List[DadRandomIndexes[0]];
+        Material MothersHair = ColorMaterial_List[MomRandomIndexes[0]];
+
+        Material FathersSkin = SkinColors_List[DadRandomIndexes[1]];
+        Material MothersSkin= SkinColors_List[MomRandomIndexes[1]];
+
+
+
+
+        if (father==null || mother==null) {
             Debug.Log("father or mother does not have the featurescript componentr");
         }else{
             //determine wich features go to which parent
-            //3 random bools
             bool[] inheritables={randomBool(),randomBool(),randomBool()};//true means it goes to the father
-            
+            //in this order - hair color, skin color, eye color
+
+            if (inheritables[0]){
+                FathersHair=PlayersHair;
+                DadRandomIndexes[0] =playerRandomIndexes[0] ;
+            }else{
+                MothersHair=PlayersHair;
+                MomRandomIndexes[0] =playerRandomIndexes[0] ;
+            }
+
+            if (inheritables[1]){
+                FathersSkin=PLayersSkin;
+                DadRandomIndexes[1] =playerRandomIndexes[1] ;
+            }else{
+                MothersSkin=PLayersSkin;
+                MomRandomIndexes[1] =playerRandomIndexes[1] ;
+            }
+
+            father.SetFeatures(GetRandomHair(),FathersHair,null,FathersSkin,true);
+            mother.SetFeatures(GetRandomHair(),MothersHair,null,MothersSkin,true);
         }
+
     }
 
 
