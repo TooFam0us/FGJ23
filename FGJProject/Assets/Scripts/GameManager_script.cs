@@ -115,7 +115,7 @@ public class GameManager_script : MonoBehaviour
             {
                 GameObject NPC = Instantiate(npcPrefab, waypoint.transform.position, new Quaternion(0, 0, 0, 0));
                 NPC.GetComponent<AIControl>().targets = Waypoints;
-                GetComponent<FeatureRandomizer_script>().RandomizeFeaturesOfGo(NPC); //i win xd
+                GetComponent<FeatureRandomizer_script>().RandomizeFeaturesOfGo(NPC); 
                 Npcs.Add(NPC);
                 Debug.Log(Npcs.Count);
             }
@@ -156,6 +156,8 @@ public class GameManager_script : MonoBehaviour
         GameObject endofgame_screen= Instantiate(endOfGamePrefab,transform.position, Quaternion.identity);
         endofgame_screen.GetComponent<EndGameUiUtils_script>().IsWin=won;
         endofgame_screen.GetComponent<EndGameUiUtils_script>().SetGameStateInfo();
+        GetComponent<FeatureRandomizer_script>().GeneratePlayerFeatures();
+
     }
 
 }
