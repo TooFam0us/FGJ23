@@ -134,21 +134,30 @@ public class FeatureRandomizer_script : MonoBehaviour
             Debug.Log("Gameobject given to feature randomizer does not contain the feature_script component");
         }else{
             //randomize the features of go
-            feature.SetFeatures(GetRandomHair(),GetRandomColor(),null,GetRandomSkinCol,false);
+            feature.SetFeatures(GetRandomHair(),GetRandomColor(),null,GetRandomSkinCol(),false);
             feature.SetClotheCols(GetRandomColor(),GetRandomColor(),GetRandomColor());
         }
     }
 
+    
 
-    public void SetFeaturesOfParents(GameObject parent1, Gameobject parent2){
-        // inheritable features features, hair style & color, skin color, eye color, :height:
+
+    //helper fn
+    bool randomBool(){
+        return Random.value>0.5;
+    }
+
+
+    public void SetFeaturesOfParents(GameObject parent1, GameObject parent2){
+        // inheritable features features, hair color, skin color, eye color, :height:
         Feature_script father= parent1.GetComponent<Feature_script>();
         Feature_script mother= parent2.GetComponent<Feature_script>();
         if (father==null || mother==null){
             Debug.Log("father or mother does not have the featurescript componentr");
         }else{
             //determine wich features go to which parent
-            //4 random bools
+            //3 random bools
+            bool[] inheritables={randomBool(),randomBool(),randomBool()};//true means it goes to the father
             
         }
     }
