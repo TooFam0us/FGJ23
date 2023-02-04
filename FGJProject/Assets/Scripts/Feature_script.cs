@@ -39,6 +39,7 @@ public class Feature_script : MonoBehaviour {
         EyeColor=eye_color;
         SkinColor=skin_color;
         IsParent=is_parent;
+
         
         ChancePlayerskin();
 
@@ -108,6 +109,8 @@ public class Feature_script : MonoBehaviour {
     void ChancePlayerskin() {
         changeCharacterMeshMaterial(3,SkinColor);
         changeCharacterMeshMaterial(7,EyeColor);
+        changeCharacterMeshMaterial(5,HairColor);
+        changeCharacterMeshMaterial(4,HairColor);
     }
 
 

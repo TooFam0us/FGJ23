@@ -51,7 +51,7 @@ public class FeatureRandomizer_script : MonoBehaviour
         Material skincol=SkinColors_List[playerRandomIndexes[1]];
 
         playerRandomIndexes[2] = Random.Range(0,ColorMaterial_List.Count);
-        Material eyeColor= ColorMaterial_List[playerRandomIndexes[0]];
+        Material eyeColor= ColorMaterial_List[playerRandomIndexes[2]];
         
 
         player.GetComponent<Feature_script>().SetFeatures(playerHairmesh,HairColor,eyeColor,skincol,false,true);
