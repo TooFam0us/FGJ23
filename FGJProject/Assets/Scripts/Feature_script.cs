@@ -42,7 +42,8 @@ public class Feature_script : MonoBehaviour {
         EyeColor=eye_color;
         SkinColor=skin_color;
         IsParent=is_parent;
-
+        
+        ChancePlayerskin();
 
         SpawnFeatures();
     }
@@ -51,6 +52,14 @@ public class Feature_script : MonoBehaviour {
     public void setCol(Material hair){
         HairColor=hair;
         SpawnFeatures();
+    }
+
+    //set uninheritables
+    public void SetClotheCols(Material shirt,Material pants, Material shoe){
+        changeCharacterMeshMaterial(0,shirt);
+        changeCharacterMeshMaterial(1,pants);
+        changeCharacterMeshMaterial(2,shoe);
+
     }
 
 
@@ -78,6 +87,22 @@ public class Feature_script : MonoBehaviour {
 
 
 
+
+    }
+
+    void ChancePlayerskin() {
+        changeCharacterMeshMaterial(3,SkinColor);
+    }
+
+    //change material at index for the player mesh
+    void changeCharacterMeshMaterial(int index,Material newMat){
+        Renderer[] children;
+        children = GetComponentsInChildren<Renderer>();
+
+        //look at index 1 since index  0 is camera
+        Material[] mats =children[1].materials;
+        mats[index]=newMat;
+        children[1].materials=mats;
 
     }
 
