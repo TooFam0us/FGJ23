@@ -101,16 +101,19 @@ public class Chill_charactercontroler : MonoBehaviour
         if (imnear)
         {
             imnear = false;
-            if (target.GetComponent<Feature_script>().IsParent)
-            {
-                Debug.Log(target.GetComponent<Feature_script>().IsParent);
+            if (target!=null){
 
-                GM.ParentFound();
-                Destroy(target);
-            }else{
-                Debug.Log("this person is not my parent");
-                //limitet quesses so decrement some variable
+                if (target.GetComponent<Feature_script>().IsParent) {
+                    Debug.Log(target.GetComponent<Feature_script>().IsParent);
+
+                    GM.ParentFound();
+                    Destroy(target);
+                }else{
+                    Debug.Log("this person is not my parent");
+                    //limitet quesses so decrement some variable
+                }
             }
+
 
         }
     }
