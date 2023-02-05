@@ -10,8 +10,8 @@ public class GameManager_script : MonoBehaviour
     //spawn random npc's
     public int CurrentLevel = 0;
     public GameObject npcPrefab;
-    public List<GameObject> Rooms= new List<GameObject>();
-    string[] RoomTypes;
+    private List<GameObject> Rooms= new List<GameObject>();
+    public GameObject[] RoomTypes;
     private List<GameObject> Npcs;
     // Start is called before the first frame update
     private bool firstParentFound = false;
@@ -158,7 +158,7 @@ public class GameManager_script : MonoBehaviour
         GameObject go = AssetDatabase.LoadAssetAtPath<GameObject>(path);
         GameObject CreatedRoom = Instantiate(go, loc, rot);
         */
-        GameObject go = Rooms[Random.Range(0, Rooms.Count)];
+        GameObject go = RoomTypes[Random.Range(0, RoomTypes.Length-1)];
 
         GameObject CreatedRoom = Instantiate(go, loc, rot);
 
