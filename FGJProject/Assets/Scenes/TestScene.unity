@@ -255,6 +255,119 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 7011769432816181149}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: HairStyle_List.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: SkinColors_List.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: HairStyle_List.Array.data[0]
+      value: 
+      objectReference: {fileID: 3520290077940694245, guid: 08830b6b34132cf45b19713f6cb17b9f,
+        type: 3}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: HairStyle_List.Array.data[1]
+      value: 
+      objectReference: {fileID: 903441131353376473, guid: 857534d9ac319b34eb15dfa9460ce882,
+        type: 3}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: HairStyle_List.Array.data[2]
+      value: 
+      objectReference: {fileID: 5848636568972698903, guid: 291ad0ce97aca12479fa364240fd6e4c,
+        type: 3}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: HairStyle_List.Array.data[3]
+      value: 
+      objectReference: {fileID: -8988126089267779876, guid: 197c6c9723c86e842940c5d60081dcb9,
+        type: 3}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: HairStyle_List.Array.data[4]
+      value: 
+      objectReference: {fileID: 2786572828433355160, guid: a0e1d4b71db271c4db1ea2d15dc7ec02,
+        type: 3}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: HairStyle_List.Array.data[5]
+      value: 
+      objectReference: {fileID: 4113319864890028564, guid: c6a763600a81b924f902febdc41ffb78,
+        type: 3}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: HairStyle_List.Array.data[6]
+      value: 
+      objectReference: {fileID: 4645088882689720627, guid: 96aac3868965b9b45a00512a0e948b28,
+        type: 3}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: HairStyle_List.Array.data[7]
+      value: 
+      objectReference: {fileID: -8743717489906851788, guid: b8262c490b8eec44b8a8039943b3496c,
+        type: 3}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: ColorMaterial_List.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: SkinColors_List.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5f41a136c536b584d9fe2a957ce259a4, type: 2}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: SkinColors_List.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed324fa017388f849ae5a5f43b60d71b, type: 2}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: SkinColors_List.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ce97188c3e3c364197a9bb536c4fd92, type: 2}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: SkinColors_List.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 71e8788869c629e45b142297ea6e1687, type: 2}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: ColorMaterial_List.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7dd2f9400ee7ac24687a1f39d83c5c0e, type: 2}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: ColorMaterial_List.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a88c0cf3631dd2d4fbca6a47fa980a68, type: 2}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: ColorMaterial_List.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42582e873ce40ee46a1f672e035bfb79, type: 2}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: ColorMaterial_List.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bafecd3684f2234e9eb628186092b9f, type: 2}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: ColorMaterial_List.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb3589315d6a8c0428dc752c9069df82, type: 2}
+    - target: {fileID: 6288055239046241458, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: ColorMaterial_List.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 51d796c873472cf4a92fdfb7528e1b04, type: 2}
     - target: {fileID: 6288055239046241459, guid: f40d871ade7ba6a40aec91617ab21b42,
         type: 3}
       propertyPath: m_RootOrder

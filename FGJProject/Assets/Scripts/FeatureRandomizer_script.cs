@@ -6,9 +6,9 @@ using UnityEditor;
 public class FeatureRandomizer_script : MonoBehaviour
 {
 
-    List<Mesh> HairStyle_List=new List<Mesh>();
-    List<Material> ColorMaterial_List=new List<Material>();
-    List<Material> SkinColors_List=new List<Material>();
+    public List<Mesh> HairStyle_List=new List<Mesh>();
+    public List<Material> ColorMaterial_List=new List<Material>();
+    public List<Material> SkinColors_List=new List<Material>();
 
 
    // hair color, skiun color, eyecolor 
@@ -27,10 +27,12 @@ public class FeatureRandomizer_script : MonoBehaviour
     void Start() {
         Debug.Log("feature start");
 
-        /* Fetch all resources from their appropriate folders*/
+        /* Fetch all resources from their appropriate foldersi
+
         PopulateMaterialColorList();
         PopulateHairMeshList();
         PopulateSkinColorList();
+        */
         
         //set players features and save the indexes
         GeneratePlayerFeatures();
@@ -57,6 +59,8 @@ public class FeatureRandomizer_script : MonoBehaviour
         player.GetComponent<Chill_charactercontroler>().GM.gameEnded = false;
         StopCoroutine(koorutiini);
     }
+
+
     /*this sets the players features and saves the indexes. THIS NEEDS TO BE CALLED BEFORE MAKING PARENTS OR NPC'S*/
     public void GeneratePlayerFeatures(){
         //set player features. save the index of these features and use them later
@@ -78,18 +82,6 @@ public class FeatureRandomizer_script : MonoBehaviour
     }
 
 
-    void PopulateHairMeshList(){
-
-        //hyvin likaista, hyvin epätehokasta kopioitusa
-        string[] guids = AssetDatabase.FindAssets( "t:Mesh",new string[]{"Assets/Art/Models/Character/Hair"});
-        //string[] guids = AssetDatabase.FindAssets("hamehair" );
-
-        foreach( var guid in guids ) {
-            var path = AssetDatabase.GUIDToAssetPath( guid );
-            Mesh me = AssetDatabase.LoadAssetAtPath<Mesh>( path );
-            HairStyle_List.Add(me);
-        }
-    }
 
 
     //copied get random fns
@@ -109,29 +101,6 @@ public class FeatureRandomizer_script : MonoBehaviour
     }
 
 
-    void PopulateMaterialColorList(){
-
-        //hyvin likaista, hyvin epätehokasta
-        string[] guids = AssetDatabase.FindAssets( "t:Material",new string[]{"Assets/Materials/FeatureColorMaterials"});
-
-        foreach( var guid in guids ) {
-            var path = AssetDatabase.GUIDToAssetPath( guid );
-            Material mat = AssetDatabase.LoadAssetAtPath<Material>( path );
-            ColorMaterial_List.Add(mat);
-        }
-    }
-
-    void PopulateSkinColorList(){
-
-        //hyvin likaista, hyvin epätehokasta
-        string[] guids = AssetDatabase.FindAssets( "t:Material",new string[]{"Assets/Materials/SkinColors"});
-
-        foreach( var guid in guids ) {
-            var path = AssetDatabase.GUIDToAssetPath( guid );
-            Material mat = AssetDatabase.LoadAssetAtPath<Material>( path );
-            SkinColors_List.Add(mat);
-        }
-    }
 
 
     //todo. make it avoid players setted features
