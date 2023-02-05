@@ -617,7 +617,7 @@ PrefabInstance:
     - target: {fileID: 8024006094876795173, guid: c1002851e53c4d14c99e1f7f3b9cda31,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 27
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8024006094876795173, guid: c1002851e53c4d14c99e1f7f3b9cda31,
         type: 3}
@@ -643,7 +643,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c6cf1731314d32849af29b40816d707e,
+      objectReference: {fileID: 21300000, guid: 8ef2b2f143547f24d912f24f1218cbb9,
         type: 3}
     - target: {fileID: 8450433198877505573, guid: c1002851e53c4d14c99e1f7f3b9cda31,
         type: 3}
@@ -693,7 +693,7 @@ PrefabInstance:
     - target: {fileID: 8928309775937995019, guid: c1002851e53c4d14c99e1f7f3b9cda31,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 27
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8928309775937995019, guid: c1002851e53c4d14c99e1f7f3b9cda31,
         type: 3}
