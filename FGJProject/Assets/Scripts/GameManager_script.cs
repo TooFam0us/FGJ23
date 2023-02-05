@@ -76,6 +76,7 @@ public class GameManager_script : MonoBehaviour
     {
         Debug.Log("next lev");
         quessAttempsRemaining=quessAttemptsPerLevel;
+        Timer.GetComponent<Timer_script>().setAttempts(quessAttempsRemaining);
         DestroyAllRooms();
         DestroyAllNpc();
         CurrentLevel++;
@@ -162,6 +163,7 @@ public class GameManager_script : MonoBehaviour
     {
         GetComponent<FeatureRandomizer_script>().SetFeaturesOfParents(Npcs[Random.Range(0, Npcs.Count - 1)], Npcs[Random.Range(0, Npcs.Count - 1)]);
     }
+
     public void ParentFound()
     {
         if (firstParentFound)
