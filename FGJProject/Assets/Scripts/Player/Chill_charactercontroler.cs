@@ -9,6 +9,7 @@ public class Chill_charactercontroler : MonoBehaviour
     float side_movement;
     float forward_movement;
     float hrot,vrot;
+    float ncamerarotation=0;
     public CharacterController cc;
     public float MS=2;
     float sens=2;
@@ -72,14 +73,26 @@ public class Chill_charactercontroler : MonoBehaviour
     }
 
     void handle_rotate(){
-        if (GM.gameEnded == false)
-        {
-
+        if (GM.gameEnded == false) {
             float hrot =Input.GetAxis("Mouse X");
-        float vrot=Input.GetAxis("Mouse Y");
-        transform.Rotate(0,hrot*sens,0);
-        cam.transform.Rotate(-vrot*sens,0,0);
+            float vrot=Input.GetAxis("Mouse Y");
+            transform.Rotate(0,hrot*sens,0);
+            //cam.transform.Rotate(-vrot*sens,0,0);
+            ncamerarotation-=vrot*sens;
+
+            float minRotation = -95;
+            float maxRotation = 95;
+            ncamerarotation= Mathf.Clamp(ncamerarotation, minRotation, maxRotation);
+            cam.transform.localRotation= Quaternion.Euler (ncamerarotation,0,0);
+
+            
+
+
         }
+
+
+
+
 
     }
 
@@ -94,6 +107,9 @@ public class Chill_charactercontroler : MonoBehaviour
 
                 GM.ParentFound();
                 Destroy(target);
+            }else{
+                Debug.Log("this person is not my parent");
+                //limitet quesses so decrement some variable
             }
 
         }
