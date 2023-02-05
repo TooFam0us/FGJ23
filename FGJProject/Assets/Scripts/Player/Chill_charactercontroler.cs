@@ -37,7 +37,6 @@ public class Chill_charactercontroler : MonoBehaviour
         handle_rotate();
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Debug.Log("Mouse0 key was pressed.");
             MouseClick();
         }
         /*
@@ -89,10 +88,16 @@ public class Chill_charactercontroler : MonoBehaviour
         if (imnear)
         {
             imnear = false;
-            Debug.Log(target.GetComponent<Feature_script>().IsParent);
-            GM.ParentFound();
-            Destroy(target);
+            if (target.GetComponent<Feature_script>().IsParent)
+            {
+                Debug.Log(target.GetComponent<Feature_script>().IsParent);
+
+                GM.ParentFound();
+                Destroy(target);
+            }
+
         }
     }
+
 }
 

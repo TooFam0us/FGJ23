@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Waypoint
   - Clickable
+  - STU
   layers:
   - Default
   - TransparentFX

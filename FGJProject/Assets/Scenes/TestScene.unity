@@ -593,8 +593,14 @@ PrefabInstance:
     - target: {fileID: 6288055239046241468, guid: f40d871ade7ba6a40aec91617ab21b42,
         type: 3}
       propertyPath: CurrentLevel
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6288055239046241468, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: endOfGamePrefab
+      value: 
+      objectReference: {fileID: 9106847296459771601, guid: 491a3b60f13aa2d4b8f5a7e2b7aa66ff,
+        type: 3}
     - target: {fileID: 6288055239046241469, guid: f40d871ade7ba6a40aec91617ab21b42,
         type: 3}
       propertyPath: m_Name
@@ -2206,7 +2212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36345cc47fad6d47b544e40d5b05523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cc: {fileID: 0}
+  cc: {fileID: 7011769432816181150}
   MS: 20
   interactionDistance: 3
   imnear: 0

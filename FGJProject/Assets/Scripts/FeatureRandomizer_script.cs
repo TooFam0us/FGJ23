@@ -17,7 +17,7 @@ public class FeatureRandomizer_script : MonoBehaviour
     int[] DadRandomIndexes = new int[3];
     int[] MomRandomIndexes = new int[3];
 
-
+    private Coroutine koorutiini;
 
 
 
@@ -34,11 +34,9 @@ public class FeatureRandomizer_script : MonoBehaviour
         
         //set players features and save the indexes
         GeneratePlayerFeatures();
-        
     }
 
     void Update() {
-        Debug.Log(player.transform.position);
     }
 
     public void reset_player_pos(){
@@ -46,7 +44,8 @@ public class FeatureRandomizer_script : MonoBehaviour
         Vector3 startpos=new Vector3(9.7f,-1.7f,-1.0f);
         player.transform.position = startpos;
         player.transform.rotation = Quaternion.identity;
-        StartCoroutine(ExecuteAfterTime(0.1f));
+        koorutiini = StartCoroutine(ExecuteAfterTime(0.2f));
+
         //9.7,-1.7,-1
     }
 
@@ -56,6 +55,7 @@ public class FeatureRandomizer_script : MonoBehaviour
 
         // Code to execute after the delay
         player.GetComponent<Chill_charactercontroler>().GM.gameEnded = false;
+        StopCoroutine(koorutiini);
     }
     /*this sets the players features and saves the indexes. THIS NEEDS TO BE CALLED BEFORE MAKING PARENTS OR NPC'S*/
     public void GeneratePlayerFeatures(){
@@ -160,6 +160,7 @@ public class FeatureRandomizer_script : MonoBehaviour
 
 
     public void SetFeaturesOfParents(GameObject parent1, GameObject parent2){
+        Debug.Log("Parents");
         // inheritable features features, hair color, skin color, eye color, :height:
         Feature_script father= parent1.GetComponent<Feature_script>();
         Feature_script mother= parent2.GetComponent<Feature_script>();
@@ -233,6 +234,10 @@ public class FeatureRandomizer_script : MonoBehaviour
 
             mother.SetFeatures(GetRandomHair(),MothersHair,MotherEye,MothersSkin,true,false);
             mother.SetClotheCols(GetRandomColor(),GetRandomColor(),GetRandomColor() );
+
+            father.transform.localScale = new Vector3(10f, 10f, 10f);
+            mother.transform.localScale = new Vector3(10f, 10f, 10f);
+
         }
 
     }

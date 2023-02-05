@@ -65,7 +65,7 @@ public class EndGameUiUtils_script : MonoBehaviour
         //code
         //start from lev0
 
-        manager.GetComponent<GameManager_script>().CurrentLevel=0;
+        manager.GetComponent<GameManager_script>().CurrentLevel=1;
         manager.GetComponent<GameManager_script>().NextLevel();
 
         closeUi();

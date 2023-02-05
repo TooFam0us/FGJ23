@@ -32,6 +32,8 @@ public class GameManager_script : MonoBehaviour
 
         GenerateLevel();
         //SpawnNpc();
+        makeParents();
+
 
     }
 
@@ -65,6 +67,7 @@ public class GameManager_script : MonoBehaviour
         Timer.GetComponent<Timer_script>().setTime();
         GenerateLevel();
         GetComponent<FeatureRandomizer_script>().reset_player_pos();
+        makeParents();
     }
 
     void GenerateLevel()
@@ -121,7 +124,6 @@ public class GameManager_script : MonoBehaviour
                 NPC.GetComponent<AIControl>().targets = Waypoints;
                 GetComponent<FeatureRandomizer_script>().RandomizeFeaturesOfGo(NPC); 
                 Npcs.Add(NPC);
-                Debug.Log(Npcs.Count);
             }
 
         }
@@ -142,7 +144,7 @@ public class GameManager_script : MonoBehaviour
 
     void makeParents()
     {
-        GetComponent<FeatureRandomizer_script>().SetFeaturesOfParents(Npcs[0], Npcs[1]);
+        GetComponent<FeatureRandomizer_script>().SetFeaturesOfParents(Npcs[Random.Range(0, Npcs.Count - 1)], Npcs[Random.Range(0, Npcs.Count - 1)]);
     }
     public void ParentFound()
     {
