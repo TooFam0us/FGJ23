@@ -204,8 +204,6 @@ public class FeatureRandomizer_script : MonoBehaviour
             mother.SetFeatures(GetRandomHair(),MothersHair,MotherEye,MothersSkin,true,false);
             mother.SetClotheCols(GetRandomColor(),GetRandomColor(),GetRandomColor() );
 
-            father.transform.localScale = new Vector3(10f, 10f, 10f);
-            mother.transform.localScale = new Vector3(10f, 10f, 10f);
 
         }
 

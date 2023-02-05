@@ -10,7 +10,7 @@ public class GameManager_script : MonoBehaviour
     //spawn random npc's
     public int CurrentLevel = 0;
     public GameObject npcPrefab;
-    private List<GameObject> Rooms= new List<GameObject>();
+    public List<GameObject> Rooms= new List<GameObject>();
     string[] RoomTypes;
     private List<GameObject> Npcs;
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class GameManager_script : MonoBehaviour
     {
         Debug.Log("gamemanager start");
         Timer=GameObject.Find("TimerUi");
-        RoomTypes = AssetDatabase.FindAssets("t:prefab", new string[] { "Assets/Prefabs/PivotedRooms" });
+        //RoomTypes = AssetDatabase.FindAssets("t:prefab", new string[] { "Assets/Prefabs/PivotedRooms" });
         Npcs = new List<GameObject>();
 
         GenerateLevel();
@@ -153,36 +153,42 @@ public class GameManager_script : MonoBehaviour
     {
         //spawnais roomeja suhteutettuna level tasoon
         //Instantiate(RoomTypes[0], new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+        /*
         var path = AssetDatabase.GUIDToAssetPath(RoomTypes[Random.Range(0, RoomTypes.Length)]);
         GameObject go = AssetDatabase.LoadAssetAtPath<GameObject>(path);
         GameObject CreatedRoom = Instantiate(go, loc, rot);
+        */
+        GameObject go = Rooms[Random.Range(0, Rooms.Count)];
+
+        GameObject CreatedRoom = Instantiate(go, loc, rot);
+
         Rooms.Add(CreatedRoom);
-        return CreatedRoom;
-    }
+return CreatedRoom;
+}
 
-    void makeParents()
-    {
-        GetComponent<FeatureRandomizer_script>().SetFeaturesOfParents(Npcs[Random.Range(0, Npcs.Count - 1)], Npcs[Random.Range(0, Npcs.Count - 1)]);
-    }
+void makeParents()
+{
+GetComponent<FeatureRandomizer_script>().SetFeaturesOfParents(Npcs[Random.Range(0, Npcs.Count - 1)], Npcs[Random.Range(0, Npcs.Count - 1)]);
+}
 
-    public void ParentFound()
-    {
-        if (firstParentFound)
-        {
-            EndOfLevel(true);
-            firstParentFound = false;
-        }
-        else
-        {
-            firstParentFound = true;
-        }
-    }
-    public void EndOfLevel(bool won) {
-        gameEnded = true;
-        GameObject endofgame_screen= Instantiate(endOfGamePrefab,transform.position, Quaternion.identity);
-        endofgame_screen.GetComponent<EndGameUiUtils_script>().IsWin=won;
-        endofgame_screen.GetComponent<EndGameUiUtils_script>().SetGameStateInfo();
-        GetComponent<FeatureRandomizer_script>().GeneratePlayerFeatures();
+public void ParentFound()
+{
+if (firstParentFound)
+{
+    EndOfLevel(true);
+    firstParentFound = false;
+}
+else
+{
+    firstParentFound = true;
+}
+}
+public void EndOfLevel(bool won) {
+gameEnded = true;
+GameObject endofgame_screen= Instantiate(endOfGamePrefab,transform.position, Quaternion.identity);
+endofgame_screen.GetComponent<EndGameUiUtils_script>().IsWin=won;
+endofgame_screen.GetComponent<EndGameUiUtils_script>().SetGameStateInfo();
+GetComponent<FeatureRandomizer_script>().GeneratePlayerFeatures();
 
-    }
+}
 }
