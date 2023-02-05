@@ -158,7 +158,7 @@ public class GameManager_script : MonoBehaviour
         GameObject go = AssetDatabase.LoadAssetAtPath<GameObject>(path);
         GameObject CreatedRoom = Instantiate(go, loc, rot);
         */
-        GameObject go = RoomTypes[Random.Range(0, RoomTypes.Length-1)];
+        GameObject go = RoomTypes[Random.Range(0, RoomTypes.Length)];
 
         GameObject CreatedRoom = Instantiate(go, loc, rot);
 
