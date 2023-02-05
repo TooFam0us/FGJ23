@@ -166,7 +166,7 @@ public class FeatureRandomizer_script : MonoBehaviour
         Feature_script mother= parent2.GetComponent<Feature_script>();
 
         Material PlayersHair= ColorMaterial_List[playerRandomIndexes[0]];
-        Material PLayersSkin= ColorMaterial_List[playerRandomIndexes[1]];
+        Material PLayersSkin= SkinColors_List[playerRandomIndexes[1]];
         Material PlayersEye= ColorMaterial_List[playerRandomIndexes[2]];
 
 
