@@ -439,6 +439,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9106847296459771601, guid: 491a3b60f13aa2d4b8f5a7e2b7aa66ff,
         type: 3}
+    - target: {fileID: 6288055239046241468, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: Rooms.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288055239046241468, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: Rooms.Array.data[0]
+      value: 
+      objectReference: {fileID: 2530826941151533226, guid: 3a459177e3f61724fb7055ba071264e7,
+        type: 3}
+    - target: {fileID: 6288055239046241468, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: Rooms.Array.data[1]
+      value: 
+      objectReference: {fileID: 2652465647324134851, guid: 734060a6ccd1b284e953ee2f5a38de50,
+        type: 3}
+    - target: {fileID: 6288055239046241468, guid: f40d871ade7ba6a40aec91617ab21b42,
+        type: 3}
+      propertyPath: Rooms.Array.data[2]
+      value: 
+      objectReference: {fileID: 694097343080390197, guid: 83e2dd34b982c26448c43c89fd258822,
+        type: 3}
     - target: {fileID: 6288055239046241469, guid: f40d871ade7ba6a40aec91617ab21b42,
         type: 3}
       propertyPath: m_Name
