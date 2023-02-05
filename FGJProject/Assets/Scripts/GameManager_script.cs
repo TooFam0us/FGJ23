@@ -54,6 +54,7 @@ public class GameManager_script : MonoBehaviour
         for (int i = 0; i < Npcs.Count; i++) {
             Destroy(Npcs[i]);
         }
+        Npcs = new List<GameObject>();
     }
 
     //player gives incorrect quess
