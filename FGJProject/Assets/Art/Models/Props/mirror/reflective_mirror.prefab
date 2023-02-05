@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 16155f75cc2fae749add869d4a30d4ef,
         type: 3}
       propertyPath: m_Name
-      value: prop_mirror
+      value: reflective_mirror
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16155f75cc2fae749add869d4a30d4ef, type: 3}
@@ -75,6 +75,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5314677938507801162}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &4153683510962805637
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4972236483467534107}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.017849967, y: 0.01851924, z: 0.01802441}
+  m_Center: {x: -4.656613e-10, y: 0.009367644, z: 0}
 --- !u!215 &99908035
 ReflectionProbe:
   m_ObjectHideFlags: 0
@@ -88,7 +101,7 @@ ReflectionProbe:
   m_Mode: 1
   m_RefreshMode: 1
   m_TimeSlicingMode: 0
-  m_Resolution: 256
+  m_Resolution: 512
   m_UpdateFrequency: 0
   m_BoxSize: {x: 10, y: 10, z: 10}
   m_BoxOffset: {x: 0, y: 0, z: 0}
@@ -108,16 +121,3 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
---- !u!65 &4153683510962805637
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4972236483467534107}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.017849967, y: 0.01851924, z: 0.01802441}
-  m_Center: {x: -4.656613e-10, y: 0.009367644, z: 0}
