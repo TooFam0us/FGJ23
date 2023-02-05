@@ -16,6 +16,8 @@ public class GameManager_script : MonoBehaviour
     // Start is called before the first frame update
     private bool firstParentFound = false;
 
+    public GameObject EndPiece;
+
     [SerializeField]
     GameObject endOfGamePrefab;
 
@@ -75,11 +77,12 @@ public class GameManager_script : MonoBehaviour
         //spawnais roomeja suhteutettuna level tasoon
         //Instantiate(RoomTypes[0], new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
 
-        for (int i = 0; i < CurrentLevel+1; i++)
+        for (int i = 0; i < CurrentLevel; i++)
         {
             SpawnNpc(GenerateRoom(new Vector3(-42.34766f * i, 0, 0), new Quaternion(0, 0, 0, 0)));
             SpawnNpc(GenerateRoom(new Vector3(-42.34766f * i, 0, 0), new Quaternion(0, 180, 0, 0)));
         }
+        EndPiece.transform.position = new Vector3(-42.34766f * CurrentLevel + 25, 0, 0);
     }
 
     void SpawnNpc(GameObject room)
@@ -166,5 +169,4 @@ public class GameManager_script : MonoBehaviour
         GetComponent<FeatureRandomizer_script>().GeneratePlayerFeatures();
 
     }
-
 }
