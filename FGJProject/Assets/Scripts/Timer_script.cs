@@ -12,6 +12,10 @@ public class Timer_script : MonoBehaviour
     [SerializeField]
     Text Timer_txt;
 
+    [SerializeField]
+    Text attemptsRemaining_txt;
+
+
     // Start is called before the first frame update
     void Start() {
         setTime();
@@ -20,6 +24,11 @@ public class Timer_script : MonoBehaviour
 
     public void setTime(){
         SecondsRemaining= GameObject.Find("manager").GetComponent<GameManager_script>().CurrentLevel*10+60;
+
+    }
+
+    public void setAttempts(int attempt){
+        attemptsRemaining_txt.text= string.Format("Quesses Remaining:{0}", attempt);
 
     }
 

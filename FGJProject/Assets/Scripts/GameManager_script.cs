@@ -23,6 +23,9 @@ public class GameManager_script : MonoBehaviour
 
     GameObject Timer;
 
+    int quessAttemptsPerLevel=5;
+    public int quessAttempsRemaining=5;
+
     public bool gameEnded = false;
 
     void Start()
@@ -35,6 +38,7 @@ public class GameManager_script : MonoBehaviour
         GenerateLevel();
         //SpawnNpc();
         makeParents();
+        Timer.GetComponent<Timer_script>().setAttempts(quessAttempsRemaining);
 
 
     }
@@ -52,6 +56,14 @@ public class GameManager_script : MonoBehaviour
         }
     }
 
+    //player gives incorrect quess
+    public void IncorrectQuess(){
+        quessAttempsRemaining--;
+        Timer.GetComponent<Timer_script>().setAttempts(quessAttempsRemaining);
+        if (quessAttempsRemaining==0){
+            EndOfLevel(false);
+        }
+    }
 
 
     // Update is called once per frame
@@ -63,6 +75,7 @@ public class GameManager_script : MonoBehaviour
     public void NextLevel()
     {
         Debug.Log("next lev");
+        quessAttempsRemaining=quessAttemptsPerLevel;
         DestroyAllRooms();
         DestroyAllNpc();
         CurrentLevel++;

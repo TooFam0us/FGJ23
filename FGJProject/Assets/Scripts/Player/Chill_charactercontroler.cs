@@ -111,6 +111,7 @@ public class Chill_charactercontroler : MonoBehaviour
                 }else{
                     Debug.Log("this person is not my parent");
                     //limitet quesses so decrement some variable
+                    GM.IncorrectQuess();
                 }
             }
 
